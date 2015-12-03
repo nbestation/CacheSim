@@ -15,19 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CacheSim.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CacheLine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Cache.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CacheLine.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CacheSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMathFunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cache.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CacheLine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CacheSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CacheSim.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

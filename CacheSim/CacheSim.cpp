@@ -1,17 +1,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
-#include "CacheLine.h"
+//#include "CacheLine.h"
+#include "CacheSet.h"
+#include "Cache.h"
 
 int main()
 {
-	std::vector<class CacheLine> temp;
-	temp.resize(5, {10,32});
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%d\n", temp[i].GetTagLength());
+	int a = 1;
+	class Cache temp(64, 32, 2, 32);
 
-	}
+	
+	a = 2;
 	system("pause");
 }
 

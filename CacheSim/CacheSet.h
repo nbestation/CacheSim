@@ -1,3 +1,4 @@
+#pragma once
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
@@ -6,7 +7,7 @@ class CacheSet
 {
 public:
 	CacheSet(int size_of_cache_set, int length_of_tag, int length_of_data);
-	CacheSet::CacheSet(CacheSet& cs);
+	CacheSet(const CacheSet& );
 	~CacheSet();
 
 private:

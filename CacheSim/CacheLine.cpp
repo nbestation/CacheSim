@@ -21,6 +21,6 @@ CacheLine::CacheLine(const CacheLine &cl)
 CacheLine::~CacheLine()
 {
 	//printf("%d\n", tag_);
-	free(tag_);
-	free(data_);
+	//free(tag_);
+	//free(data_);
 }

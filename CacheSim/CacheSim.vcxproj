@@ -10,6 +10,18 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cache.h" />
+    <ClInclude Include="CacheLine.h" />
+    <ClInclude Include="CacheSet.h" />
+    <ClInclude Include="MyMathFunc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cache.cpp" />
+    <ClCompile Include="CacheLine.cpp" />
+    <ClCompile Include="CacheSet.cpp" />
+    <ClCompile Include="CacheSim.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4FE50DA1-DDBF-464B-8D9B-6F15A02F26F0}</ProjectGuid>
     <RootNamespace>CacheSim</RootNamespace>
@@ -63,14 +75,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="CacheLine.cpp" />
-    <ClCompile Include="CacheSim.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Cache.h" />
-    <ClInclude Include="CacheLine.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
