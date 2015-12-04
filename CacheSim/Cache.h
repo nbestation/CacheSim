@@ -9,6 +9,8 @@ public:
 	Cache(int size_of_cache, int length_of_data, int num_of_set, int length_of_addr);
 	Cache(const Cache& );
 	~Cache();
+	bool ReadData(int addr, int& data);
+	bool WriteData(int addr, int data);
 
 private:
 	int size_of_cache_;	//KB

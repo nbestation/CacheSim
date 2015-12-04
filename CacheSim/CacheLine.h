@@ -1,4 +1,7 @@
 #pragma once
+#include <stdlib.h>
+#include <vector>
+
 class CacheLine
 {
 public:
@@ -6,13 +9,16 @@ public:
 	CacheLine(const CacheLine& );
 	~CacheLine();
 	inline void SetValid(int valid){ valid_ = valid; }
-	inline int GetTagLength(){ return length_of_tag_; }
+	inline bool GetValid(){ return valid_; }
+	int GetTag();
+	bool ReadData(int tag, int& data);
+	bool WriteData(int tag, int data);
 
 private:
-	char valid_;
+	bool valid_;
 	int length_of_tag_;
-	char* tag_;
+	std::vector<char> tag_;
 	int length_of_data_;
-	char* data_;
+	std::vector<char> data_;
 };
 

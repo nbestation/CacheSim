@@ -12,9 +12,9 @@ Cache::Cache(int size_of_cache, int length_of_data, int num_of_set, int length_o
 	length_of_addr_ = length_of_addr;
 	size_of_cache_set_ = size_of_cache * 1024 /*Byte*/ / 4 /*offset*/ / num_of_set;
 	length_of_tag_ = length_of_addr_ - log2(size_of_cache_set_) - 2;
-	//class CacheSet temp(size_of_cache_set_, length_of_tag_, length_of_data_);
-	//cache_.resize(num_of_set_, temp);
-	cache_.resize(num_of_set_, { size_of_cache_set_, length_of_tag_, length_of_data_ });
+	class CacheSet temp(size_of_cache_set_, length_of_tag_, length_of_data_);
+	cache_.resize(num_of_set_, temp);
+	//cache_.resize(num_of_set_, { size_of_cache_set_, length_of_tag_, length_of_data_ });
 }
 
 Cache::Cache(const Cache& c)
@@ -25,9 +25,9 @@ Cache::Cache(const Cache& c)
 	length_of_addr_ = c.length_of_addr_;
 	size_of_cache_set_ = c.size_of_cache_set_;
 	length_of_tag_ = c.length_of_tag_;
-	//class CacheSet temp(c.size_of_cache_set_, c.length_of_tag_, c.length_of_data_);
-	//cache_.resize(num_of_set_, temp);
-	cache_.resize(num_of_set_, { size_of_cache_set_, length_of_tag_, length_of_data_ });
+	class CacheSet temp(c.size_of_cache_set_, c.length_of_tag_, c.length_of_data_);
+	cache_.resize(c.num_of_set_, temp);
+	//cache_.resize(num_of_set_, { size_of_cache_set_, length_of_tag_, length_of_data_ });
 }
 
 Cache::~Cache()

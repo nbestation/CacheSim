@@ -9,6 +9,8 @@ public:
 	CacheSet(int size_of_cache_set, int length_of_tag, int length_of_data);
 	CacheSet(const CacheSet& );
 	~CacheSet();
+	bool ReadData(int addr, int tag, int& data);
+	bool WriteData(int addr, int tag, int data);
 
 private:
 	int size_of_cache_set_;	
