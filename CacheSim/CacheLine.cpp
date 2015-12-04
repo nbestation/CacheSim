@@ -27,8 +27,16 @@ CacheLine::~CacheLine()
 {
 }
 
-int CacheLine::~GetTag()
+int CacheLine::GetTag()
 {
+	int sum = 0;
+	int base = 1;
+	for (int i = 0; i < tag_.size(); i++)
+	{
+		sum = sum + base * (int)tag_[i];
+		base = base * 2;
+	}
+	return sum;
 }
 
 bool CacheLine::ReadData(int tag, int& data)

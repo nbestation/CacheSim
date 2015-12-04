@@ -40,3 +40,13 @@ bool CacheSet::WriteData(int addr, int tag, int data)
 {
 	return (cache_set_[addr].WriteData(tag, data));
 }
+
+int CacheSet::GetTag(int addr)
+{
+	return (cache_set_[addr].GetTag());
+}
+
+bool CacheSet::GetValid(int addr)
+{
+	return (cache_set_[addr].GetValid());
+}

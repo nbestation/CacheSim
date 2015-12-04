@@ -37,3 +37,70 @@ Cache::~Cache()
 		cache_[i].~CacheSet();
 	}
 }
+
+void Cache::AddrAnalysis(int addr, int& tag, int& set_addr)
+{
+	set_addr = (int)(addr / 4) % size_of_cache_set_;
+	tag = (addr - set_addr * 4) % (size_of_cache_set_ * 4);
+}
+
+void Cache::SwapCacheData(int id, int set_addr)
+{
+	int data;
+	int tag = cache_[id - 1].GetTag(set_addr);
+	cache_[id - 1].ReadData(set_addr, 0, data);
+	cache_[id].WriteData(set_addr, tag, data);
+}
+
+bool Cache::ReadData(int addr, int& data)
+{
+	int tag, set_addr;
+	AddrAnalysis(addr, tag, set_addr);
+	int non_valid_id = cache_.size();
+	bool hit = false;
+	for (int i = cache_.size() - 1; i >= 0; i--)
+	{
+		if (cache_[i].GetValid(set_addr) == 0)
+		{
+			non_valid_id = i;
+		}
+		hit = hit || (tag == cache_[i].GetTag(set_addr));
+	}
+	if (hit)
+	{
+		int hit_set_id;
+		for (int i = cache_.size() - 1; i >= 0; i--)
+		{
+			if (tag == cache_[i].GetTag(set_addr))
+			{
+				hit_set_id = i;
+			}
+		}
+		cache_[hit_set_id].ReadData(set_addr, tag, data);//read data
+		//replace
+		for (int i = hit_set_id; i > 0; i--)
+		{
+			SwapCacheData(i, set_addr);
+		}
+	}
+	else
+	{
+		if (non_valid_id == cache_.size())//cache is full
+		{
+			for (int i = cache_.size() - 1; i > 0; i--)
+			{
+				SwapCacheData(i, set_addr);
+			}
+			cache_[0].ReadData(set_addr, tag, data);//read data
+		}
+		else
+		{
+			for (int i = non_valid_id; i > 0; i--)
+			{
+				SwapCacheData(i, set_addr);
+			}
+			cache_[0].ReadData(set_addr, tag, data);//read data
+		}
+	}
+	return hit;
+}

@@ -11,6 +11,8 @@ public:
 	~CacheSet();
 	bool ReadData(int addr, int tag, int& data);
 	bool WriteData(int addr, int tag, int data);
+	int GetTag(int addr);
+	bool GetValid(int addr);
 
 private:
 	int size_of_cache_set_;	
