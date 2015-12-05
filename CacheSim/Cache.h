@@ -10,8 +10,10 @@ public:
 	Cache(const Cache& );
 	~Cache();
 
-	bool ReadData(int addr, int& data);
-	bool WriteData(int addr, int data);
+	bool ReadDataLRU(int addr, int& data);
+	bool WriteDataLRU(int addr, int data);
+	int ReadDataMRU(int addr, int& data);
+	int WriteDataMRU(int addr, int data);
 
 
 private:

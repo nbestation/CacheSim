@@ -8,17 +8,26 @@
 
 int main()
 {
-	class Cache temp(1, 32, 1, 32);
+	class Cache temp(1, 32, 4, 32);
 	int data;
-	bool hit;
-	hit = temp.ReadData(4, data);
+	int hit;
+	hit = temp.ReadDataMRU(0, data);
 	printf("%d\n", hit);
-	hit = temp.ReadData(4, data);
+	hit = temp.ReadDataMRU(512, data);
 	printf("%d\n", hit);
-	hit = temp.ReadData(4, data);
+	hit = temp.ReadDataMRU(1024, data);
 	printf("%d\n", hit);
-	hit = temp.ReadData(4, data);
-	printf("%d\n", hit); 
+	hit = temp.ReadDataMRU(0, data);
+	printf("%d\n", hit);
+	hit = temp.ReadDataMRU(512, data);
+	printf("%d\n", hit);
+	hit = temp.ReadDataMRU(1024, data);
+	printf("%d\n", hit);
+	hit = temp.ReadDataMRU(0, data);
+	printf("%d\n", hit);
+	hit = temp.ReadDataMRU(512, data);
+	printf("%d\n", hit);
+	hit = temp.ReadDataMRU(1024, data);
 	system("pause");
 }
 

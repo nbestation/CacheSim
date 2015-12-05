@@ -14,6 +14,7 @@
     <ClInclude Include="Cache.h" />
     <ClInclude Include="CacheLine.h" />
     <ClInclude Include="CacheSet.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="MyMathFunc.h" />
   </ItemGroup>
   <ItemGroup>
