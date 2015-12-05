@@ -14,6 +14,8 @@ public:
 	bool WriteDataLRU(int addr, int data);
 	int ReadDataMRU(int addr, int& data);
 	int WriteDataMRU(int addr, int data);
+	int ReadDataMC(int addr, int& data);
+	int WriteDataMC(int addr, int data);
 
 
 private:

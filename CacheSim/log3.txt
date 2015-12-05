@@ -1,0 +1,8 @@
+ADDR		STATUS
+------------------------------
+0		not hit
+512		not hit
+1024		not hit
+1024		hit
+512		hit
+0		hit
